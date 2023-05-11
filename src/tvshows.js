@@ -7,7 +7,6 @@ const instance = axios.create({
 });
 
 export async function getTvshows(timeWindow) {
-  console.log(timeWindow);
   return instance
     .get(`/trending/tv/${timeWindow}`)
     .then((response) => {
