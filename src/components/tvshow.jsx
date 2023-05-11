@@ -1,17 +1,17 @@
 import { useState, useEffect } from 'react';
-import { getTvshows } from "../tvshows";
+import { getTvShows } from "../tvshows";
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import ResponsiveAppBar from './navbar';
 
 export default function TvShow() {
-    const [tvshows, setTvshows] = useState(null);
+    const [tvShows, setTvShows] = useState(null);
     const [timeWindow, setTimeWindow] = useState('day');
 
     useEffect(
         () => { 
-            getTvshows(timeWindow)
-            .then((response) => {setTvshows(response.results)}) 
+            getTvShows(timeWindow)
+            .then((response) => {setTvShows(response.results)}) 
         }, [timeWindow])
 
     function ToggleButtons() {
@@ -43,11 +43,11 @@ export default function TvShow() {
             <ResponsiveAppBar/>
             <h1>Trending TV Shows</h1>
             <ToggleButtons />
-            {tvshows && tvshows.length ? (
+            {tvShows && tvShows.length ? (
                 <ol>
-                    {tvshows.map((tvshow) => (
-                        <li key={tvshow.id}>
-                            <h2>{tvshow.name}</h2>
+                    {tvShows.map((tvShow) => (
+                        <li key={tvShow.id}>
+                            <h2>{tvShow.name}</h2>
                         </li>
                     ))}
                 </ol>
