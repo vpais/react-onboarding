@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { getTvshows } from "../tvshows";
-import { useLoaderData } from "react-router-dom";
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 
