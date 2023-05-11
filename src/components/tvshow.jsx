@@ -4,16 +4,15 @@ import { useLoaderData } from "react-router-dom";
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 
-export async function loader(timeWindow) {
-    const tvshows = await getTvshows(timeWindow);
-    return tvshows.results;
-}
-
 export default function TvShow() {
-    const tvshows = useLoaderData();
+    const [tvshows, setTvshows] = useState(null);
     const [timeWindow, setTimeWindow] = useState('day');
 
-    useEffect(() => { if (typeof timeWindow === 'string' || timeWindow instanceof String) { loader(timeWindow) } }, [timeWindow])
+    useEffect(
+        () => { 
+            getTvshows(timeWindow)
+            .then((response) => {setTvshows(response.results)}) 
+        }, [timeWindow])
 
     function ToggleButtons() {
         const handleTimeWindow = (event, newTimeWindow) => {
@@ -31,11 +30,8 @@ export default function TvShow() {
                 <ToggleButton value="day" aria-label="Day">
                     Day
                 </ToggleButton>
-                <ToggleButton value="month" aria-label="Month">
-                    Month
-                </ToggleButton>
-                <ToggleButton value="year" aria-label="Year">
-                    Year
+                <ToggleButton value="week" aria-label="Week">
+                    Week
                 </ToggleButton>
             </ToggleButtonGroup>
         );
@@ -44,24 +40,21 @@ export default function TvShow() {
 
     return (
         <div>
-            <nav>
-                <h1>Trending TV Shows</h1>
-                <ToggleButtons />
-                {tvshows.length ? (
-                    <ol>
-                        {tvshows.map((tvshow) => (
-                            <li key={tvshow.id}>
-                                <h2>{tvshow.name}</h2>
-
-                            </li>
-                        ))}
-                    </ol>
-                ) : (
-                    <p>
-                        <i>No tvshows</i>
-                    </p>
-                )}
-            </nav>
+            <h1>Trending TV Shows</h1>
+            <ToggleButtons />
+            {tvshows && tvshows.length ? (
+                <ol>
+                    {tvshows.map((tvshow) => (
+                        <li key={tvshow.id}>
+                            <h2>{tvshow.name}</h2>
+                        </li>
+                    ))}
+                </ol>
+            ) : (
+                <p>
+                    <i>No tvshows</i>
+                </p>
+            )}
         </div>
     )
 }

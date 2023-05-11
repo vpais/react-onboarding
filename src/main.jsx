@@ -5,14 +5,13 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import TvShow, { loader as tvshowLoader } from "./components/tvshow";
+import TvShow from "./components/tvshow";
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <TvShow />,
-    loader: tvshowLoader,
+    element: <TvShow />
   },
 ])
 
