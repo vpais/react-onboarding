@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { getTvshows } from "../tvshows";
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
+import ResponsiveAppBar from './navbar';
 
 export default function TvShow() {
     const [tvshows, setTvshows] = useState(null);
@@ -39,6 +40,7 @@ export default function TvShow() {
 
     return (
         <div>
+            <ResponsiveAppBar/>
             <h1>Trending TV Shows</h1>
             <ToggleButtons />
             {tvshows && tvshows.length ? (
