@@ -5,16 +5,15 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import TvShow from "./components/tvshow";
+import TrendingMedia from "./views/trendingMedia";
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <TvShow />
+    element: <TrendingMedia />
   },
 ])
-
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
