@@ -3,10 +3,6 @@ import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
 
 export default function ImagesList({ data }) {
-  
-  function getSrcValue(item){
-    return import.meta.env.VITE_API_IMG_PREFIX + item.poster_path
-  }
 
   return (
     <ImageList cols={6} gap={50}>
@@ -14,8 +10,7 @@ export default function ImagesList({ data }) {
         <div key={item.id}>
           <ImageListItem>
             <img
-              src={getSrcValue(item)}
-              srcSet={getSrcValue(item)}
+              src={import.meta.env.VITE_API_IMG_PREFIX + item.poster_path}
               alt={item.name}
               loading="lazy"
             />
