@@ -6,25 +6,11 @@ import Container from '@mui/material/Container';
 function ResponsiveAppBar() {
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{ backgroundColor: '#333' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            TV SHOWWWZZZ
+          <Typography variant="h4" sx={{ fontWeight: 'bold', letterSpacing: '-0.5px', color: '#fff' }}>
+            TV <span style={{ color: '#ff5722' }}>Hub</span>
           </Typography>
         </Toolbar>
       </Container>

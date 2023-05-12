@@ -12,7 +12,19 @@ export default function ToggleButtons({ currentValue, setNewValue, possibleValue
             aria-label="time window"
         >
             {possibleValues.map((value) => (
-                <ToggleButton key={value} value={value} aria-label={value}>
+                <ToggleButton 
+                    key={value}
+                    value={value}
+                    aria-label={value}
+                    sx={{ 
+                        backgroundColor: '#fff', 
+                        color: '#333',
+                        '&.Mui-selected': {
+                            backgroundColor: '#ff5722',
+                            color: '#fff'
+                        }
+                    }}
+                >
                     {value}
                 </ToggleButton>)
             )}
