@@ -11,8 +11,12 @@ export default function TrendingMedia() {
 
     useEffect(
         () => {
+            setLoading(true);
             getTvShows(timeWindow)
-                .then((data) => { setTvShows(data.results); setLoading(false); })
+                .then((data) => { 
+                    setTvShows(data.results); 
+                    setLoading(false); 
+                })
         }, [timeWindow])
 
     return (
