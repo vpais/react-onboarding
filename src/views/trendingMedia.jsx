@@ -1,17 +1,18 @@
 import { useState, useEffect } from 'react';
 import { getTvShows } from "../utils/http.utils";
 import ToggleButtons from "../components/toggleButtons";
-import ResponsiveAppBar from '../components/navbar';
+import ResponsiveAppBar from '../components/responsiveAppBar';
 import CircularProgress from '@mui/material/CircularProgress';
 
 export default function TrendingMedia() {
     const [tvShows, setTvShows] = useState(null);
     const [timeWindow, setTimeWindow] = useState('day');
+    const [loading, setLoading] = useState(true)
 
     useEffect(
         () => { 
             getTvShows(timeWindow)
-            .then((data) => {setTvShows(data.results)}) 
+            .then((data) => {setTvShows(data.results); setLoading(false);})
         }, [timeWindow])
 
     return (
@@ -19,7 +20,7 @@ export default function TrendingMedia() {
             <ResponsiveAppBar/>
             <h1>Trending TV Shows</h1>
             <ToggleButtons currentTimeWindow={timeWindow} setNewTimeWindow={setTimeWindow}/>
-            {tvShows && tvShows.length ? (
+            {!loading?tvShows && tvShows.length ? (
                 <ol>
                     {tvShows.map((tvShow) => (
                         <li key={tvShow.id}>
@@ -29,9 +30,14 @@ export default function TrendingMedia() {
                 </ol>
             ) : (
                 <p>
+                    <h1>No TV Shows</h1>
+                </p>
+            ) : (
+                <p>
                     <CircularProgress />
                 </p>
             )}
+            
         </div>
     )
 }
