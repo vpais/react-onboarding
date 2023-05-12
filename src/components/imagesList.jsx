@@ -7,7 +7,7 @@ export default function imagesList({data}) {
     <ImageList cols={6} gap={50}>
       {data.map((item, index) => (
         <div key={index}>
-          <ImageListItem key={item.id}>
+          <ImageListItem>
             <img
               src={import.meta.env.VITE_API_IMG_PREFIX + item.poster_path}
               srcSet={import.meta.env.VITE_API_IMG_PREFIX + item.poster_path}
