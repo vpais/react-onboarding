@@ -10,17 +10,17 @@ export default function TrendingMedia() {
     const [loading, setLoading] = useState(true)
 
     useEffect(
-        () => { 
+        () => {
             getTvShows(timeWindow)
-            .then((data) => {setTvShows(data.results); setLoading(false);})
+                .then((data) => { setTvShows(data.results); setLoading(false); })
         }, [timeWindow])
 
     return (
         <div>
-            <ResponsiveAppBar/>
+            <ResponsiveAppBar />
             <h1>Trending TV Shows</h1>
-            <ToggleButtons currentTimeWindow={timeWindow} setNewTimeWindow={setTimeWindow}/>
-            {!loading?tvShows && tvShows.length ? (
+            <ToggleButtons currentValue={timeWindow} setNewValue={setTimeWindow} possibleValues={["day", "week"]}/>
+            {!loading ? tvShows && tvShows.length ? (
                 <ol>
                     {tvShows.map((tvShow) => (
                         <li key={tvShow.id}>
@@ -37,7 +37,7 @@ export default function TrendingMedia() {
                     <CircularProgress />
                 </p>
             )}
-            
+
         </div>
     )
 }

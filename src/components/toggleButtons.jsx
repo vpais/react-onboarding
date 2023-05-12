@@ -1,22 +1,21 @@
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 
-export default function ToggleButtons({currentTimeWindow, setNewTimeWindow}) {
+export default function ToggleButtons({ currentValue, setNewValue, possibleValues }) {
 
     return (
         <ToggleButtonGroup
             color="primary"
-            value={currentTimeWindow}
+            value={currentValue}
             exclusive
-            onChange={(e) => {setNewTimeWindow(e.target.value)}}
+            onChange={(e) => { setNewValue(e.target.value) }}
             aria-label="time window"
         >
-            <ToggleButton value="day" aria-label="Day">
-                Day
-            </ToggleButton>
-            <ToggleButton value="week" aria-label="Week">
-                Week
-            </ToggleButton>
+            {possibleValues.map((value) => (
+                <ToggleButton key={value} value={value} aria-label={value}>
+                    {value}
+                </ToggleButton>)
+            )}
         </ToggleButtonGroup>
     );
 }
