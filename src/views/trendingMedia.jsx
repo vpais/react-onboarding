@@ -3,6 +3,7 @@ import { getTvShows } from "../utils/http.utils";
 import ToggleButtons from "../components/toggleButtons";
 import ResponsiveAppBar from '../components/responsiveAppBar';
 import CircularProgress from '@mui/material/CircularProgress';
+import ImagesList from '../components/imagesList';
 
 export default function TrendingMedia() {
     const [tvShows, setTvShows] = useState(null);
@@ -25,13 +26,7 @@ export default function TrendingMedia() {
             <h1>Trending TV Shows</h1>
             <ToggleButtons currentValue={timeWindow} setNewValue={setTimeWindow} possibleValues={["day", "week"]}/>
             {!loading ? tvShows && tvShows.length ? (
-                <ol>
-                    {tvShows.map((tvShow) => (
-                        <li key={tvShow.id}>
-                            <h2>{tvShow.name}</h2>
-                        </li>
-                    ))}
-                </ol>
+                <ImagesList data={tvShows}/>
             ) : (
                 <p>
                     <h1>No TV Shows</h1>
