@@ -20,8 +20,8 @@ export default function SearchBar() {
     return (
         <form onSubmit={handleSubmit} style={{ marginTop: '16px' }}>
             <TextField
-                label="Search"
-                placeholder="Search"
+                label="Search for TV Show"
+                placeholder="Search..."
                 variant="outlined"
                 value={searchTerm}
                 onChange={handleInputChange}
