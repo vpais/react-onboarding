@@ -6,7 +6,7 @@ const instance = axios.create({
   headers: { Authorization: `Bearer ${import.meta.env.VITE_API_BEARER_TOKEN}` },
 });
 
-export function getTvShows(timeWindow) {
+export function getTrendingTvShows(timeWindow) {
   return instance
     .get(`/trending/tv/${timeWindow}`)
     .then((response) => {
