@@ -1,30 +1,14 @@
 import { TextField, InputAdornment, IconButton } from '@mui/material';
-import { useState } from "react"
-import { useSearchParams } from "react-router-dom";
 import SearchIcon from '@mui/icons-material/Search';
 
 export default function SearchBar() {
-    let [searchParams, setSearchParams] = useSearchParams();
-    const [searchTerm, setSearchTerm] = useState('');
-
-    const handleInputChange = (e) => {
-        setSearchTerm(e.target.value);
-    };
-
-    function handleSubmit(event) {
-        event.preventDefault();
-        let params = new URLSearchParams({ q: searchTerm }).toString();
-        setSearchParams(params);
-    };
-
     return (
-        <form onSubmit={handleSubmit} style={{ marginTop: '16px' }}>
+        <form method='get' action="/" style={{ marginTop: '16px' }}>
             <TextField
+                name="tvShow"
                 label="Search for TV Show"
                 placeholder="Search..."
                 variant="outlined"
-                value={searchTerm}
-                onChange={handleInputChange}
                 InputProps={{
                     endAdornment: (
                         <InputAdornment position="end">
