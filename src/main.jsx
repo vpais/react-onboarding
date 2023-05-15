@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import TrendingMedia from "./views/trendingMedia";
 import Root from "./views/root";
-
+import TvShows, {loader as tvShowLoader} from "./views/tvShows";
 
 const router = createBrowserRouter([
   {
@@ -17,7 +17,12 @@ const router = createBrowserRouter([
       {
         index:true,
         element: <TrendingMedia />,
-      }
+      },
+      {
+        path: "/tv-shows",
+        element: <TvShows />,
+        loader: tvShowLoader,
+      },
     ]
   },
 ])

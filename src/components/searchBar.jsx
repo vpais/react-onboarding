@@ -3,9 +3,9 @@ import SearchIcon from '@mui/icons-material/Search';
 
 export default function SearchBar() {
     return (
-        <form method='get' action="/" style={{ marginTop: '16px' }}>
+        <form method='get' action="/tv-shows" style={{ marginTop: '16px' }}>
             <TextField
-                name="tvShow"
+                name="q"
                 label="Search for TV Show"
                 placeholder="Search..."
                 variant="outlined"
