@@ -6,12 +6,19 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import TrendingMedia from "./views/trendingMedia";
+import Root from "./views/root";
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <TrendingMedia />
+    element: <Root />,
+    children: [
+      {
+        path: "/",
+        element: <TrendingMedia />,
+      }
+    ]
   },
 ])
 

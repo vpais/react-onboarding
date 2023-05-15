@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getTvShows } from "../utils/http.utils";
 import ToggleButtons from "../components/toggleButtons";
-import ResponsiveAppBar from '../components/responsiveAppBar';
 import CircularProgress from '@mui/material/CircularProgress';
 import ImagesList from '../components/imagesList';
 import Typography from '@mui/material/Typography';
@@ -23,7 +22,6 @@ export default function TrendingMedia() {
 
     return (
         <div>
-            <ResponsiveAppBar />
             <Typography variant="h6" sx={{ fontWeight: 'bold', letterSpacing: '-0.5px', color: '#333', marginTop: '24px', marginBottom: '16px' }}>
                 Trending <span style={{ color: '#ff5722' }}>TV Shows</span>
             </Typography>
