@@ -21,7 +21,7 @@ export default function TrendingMedia() {
         }, [timeWindow])
 
     return (
-        <div>
+        <>
             <Typography variant="h6" sx={{ fontWeight: 'bold', letterSpacing: '-0.5px', color: '#333', marginTop: '24px', marginBottom: '16px' }}>
                 Trending <span style={{ color: '#ff5722' }}>TV Shows</span>
             </Typography>
@@ -38,7 +38,7 @@ export default function TrendingMedia() {
                 </p>
             )}
 
-        </div>
+        </>
     )
 }
 
