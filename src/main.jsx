@@ -8,6 +8,7 @@ import {
 import TrendingMedia from "./views/trendingMedia";
 import Root from "./views/root";
 import Details, {loader as detailsLoader} from "./views/details";
+import Search, {loader as searchLoader} from "./views/search";
 
 const router = createBrowserRouter([
   {
@@ -22,7 +23,12 @@ const router = createBrowserRouter([
         path: "/tv-shows/:tvShowId",
         element: <Details />,
         loader: detailsLoader
-      }
+      },
+      {
+        path: "/search",
+        element: <Search />,
+        loader: searchLoader,
+      },
     ]
   },
 ])

@@ -23,3 +23,12 @@ export function getDetails(id) {
     })
     .catch((error) => console.log(error));
 }
+export async function getTvShows(q) {
+  return instance
+    .get(`/search/tv?query=${q}`)
+    .then((response) => {
+      console.log('response', response)
+      return response.data;
+    })
+    .catch((error) => console.log(error));
+}
