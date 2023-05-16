@@ -10,7 +10,7 @@ export default function ImagesList({ data }) {
     <ImageList cols={6} gap={50}>
       {data.map((item, index) => (
         <div key={item.id}>
-          <ImageListItem>
+          <ImageListItem component="a" href={`/tv-shows/${item.id}`}>
             <img
               src={item.poster_path?imgPath + item.poster_path:defaultImgPath}
               alt={item.name}
