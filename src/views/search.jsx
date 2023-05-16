@@ -12,13 +12,13 @@ export async function loader({ request }) {
         })
 }
 
-export default function TvShows() {
-    const tvShows = useLoaderData();
+export default function Search() {
+    const searchResults = useLoaderData();
     return (
         <>
-            {tvShows ? (
-                tvShows.length?(
-                    <ImagesList data={tvShows} />
+            {searchResults ? (
+                searchResults.length?(
+                    <ImagesList data={searchResults} />
                 ) : (
                     <>No tv shows found</>
                 )
