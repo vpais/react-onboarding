@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import TrendingMedia from "./views/trendingMedia";
 import Root from "./views/root";
-
+import Details, {loader as detailsLoader} from "./views/details";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +17,11 @@ const router = createBrowserRouter([
       {
         index:true,
         element: <TrendingMedia />,
+      },
+      {
+        path: "/tv-shows/:tvShowId",
+        element: <Details />,
+        loader: detailsLoader
       }
     ]
   },

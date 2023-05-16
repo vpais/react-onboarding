@@ -14,3 +14,12 @@ export function getTrendingTvShows(timeWindow) {
     })
     .catch((error) => console.log(error));
 }
+
+export function getDetails(id) {
+  return instance
+    .get(`/tv/${id}`)
+    .then((response) => {
+      return response.data;
+    })
+    .catch((error) => console.log(error));
+}

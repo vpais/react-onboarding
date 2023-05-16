@@ -3,7 +3,7 @@ import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
 
 export default function ImagesList({ data }) {
-  const imgPath = import.meta.env.VITE_API_IMG_PREFIX;
+  const imgPath = import.meta.env.VITE_API_IMG_PREFIX + "w500/";
   
   return (
     <ImageList cols={6} gap={50}>
