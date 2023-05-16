@@ -19,7 +19,7 @@ const router = createBrowserRouter([
         element: <TrendingMedia />,
       },
       {
-        path: "/tv-shows",
+        path: "/search",
         element: <Search />,
         loader: searchLoader,
       },
