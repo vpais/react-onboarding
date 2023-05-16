@@ -26,23 +26,21 @@ export default function Details() {
                     />
                 </Grid>
                 <Grid item sx={{maxWidth:"100%", marginRight:2}}>
-                    {/* <Stack spacing={2}> */}
-                        <Typography variant="h5" component="h5">
-                            {tvShow.name}
-                        </Typography>
-                        <Typography variant="h7" component="h7" sx={{fontWeight: 'bold'}}>
-                            Overview
-                        </Typography>
-                        <Typography style={{overflowWrap: 'wrap'}}>
-                            {tvShow.overview}
-                        </Typography>
-                        <Rating
-                            name="rating"
-                            value={tvShow.vote_average/2}
-                            readOnly
-                            precision={0.25}
-                        />
-                    {/* </Stack> */}
+                    <Typography variant="h5" component="h5">
+                        {tvShow.name}
+                    </Typography>
+                    <Typography variant="h7" component="h7" sx={{fontWeight: 'bold'}}>
+                        Overview
+                    </Typography>
+                    <Typography style={{overflowWrap: 'wrap'}}>
+                        {tvShow.overview}
+                    </Typography>
+                    <Rating
+                        name="rating"
+                        value={tvShow.vote_average/2}
+                        readOnly
+                        precision={0.25}
+                    />
                 </Grid>
             </Grid>
         </>
